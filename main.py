@@ -22,7 +22,10 @@ def escolha_apresentador():
     for porta in portas:
         if porta != escolha and porta != carro:
             portas_escolhida.append(porta)
-            return portas_escolhida
+    porta_selecionada = random.choice(portas_escolhida)
+    print(porta_selecionada)
+    return portas_escolhida, porta_selecionada
+
 
 
 escolha = escolha_usuario()
