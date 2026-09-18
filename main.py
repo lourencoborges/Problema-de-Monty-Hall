@@ -1,22 +1,22 @@
 import random
 
-carro = random.randint(1, 3)
-portas_escolhida = []
-portas = [1, 2, 3]
+
 contagem_vitoria = 0
 contagem_derrota = 0
 
 
-def escolha_usuario():
-    while True:
-        try:
-            escolha = int(input("Escolha um numero entre 1 a 3 para encontrar o carro dourado: "))
-            if escolha >= 4 or 0 >= escolha:
-                print("Coloque um numero entre 1 a 3")
-            else:
-                return escolha
-        except ValueError:
-            print("Coloque um numero")
+#def escolha_usuario():
+#    while True:
+#       try:
+#            escolha = int(input("Escolha um numero entre 1 a 3 para encontrar o carro dourado: "))
+#            if escolha >= 4 or 0 >= escolha:
+#                print("Coloque um numero entre 1 a 3")
+#            else:
+#                return escolha
+#        except ValueError:
+#            print("Coloque um numero")
+
+#substituido por -> escolha = random.randint(1, 3)
 
 
 
@@ -35,18 +35,20 @@ def segunda_escolha():
     trocar_porta = portas_copia[0]
     return trocar_porta
 
-def decisao_usuario():
-    while True:
-        try:
-            escolha_usuario_2 = input("Voce quer trocar de porta? (s/n)")
-            escolha_final = escolha_usuario_2.lower()
-            if escolha_final == "s" or escolha_final == "n":
-                return escolha_final
-            else:
-                print("Bote apenas (s/n)")
-        except ValueError:
-            print("Bote apenas (s/n)")
-        
+
+#def decisao_usuario():
+#    while True:
+#        try:
+#            escolha_usuario_2 = input("Voce quer trocar de porta? (s/n)")
+#            escolha_final = escolha_usuario_2.lower()
+#            if escolha_final == "s" or escolha_final == "n":
+#                return escolha_final
+#            else:
+#                print("Bote apenas (s/n)")
+#        except ValueError:
+#            print("Bote apenas (s/n)")
+# trocou essa função por -> escolha_final = random.choice(["s", "n"])
+
 
 def porta_final():
     if escolha_final == "s":
@@ -55,26 +57,38 @@ def porta_final():
         ultima_porta = escolha
     return ultima_porta
 
+
+
 def verificar_vitoria():
     global contagem_vitoria
     global contagem_derrota
     if ultima_porta == carro:
-        print("Parabens, voce ganhou")
         contagem_vitoria += 1
     else:
-        print("Que pena, voce perdeu")
         contagem_derrota += 1
+        
 
 
 
-escolha = escolha_usuario()
+for i in range(1000):
 
-portas_escolhida, porta_selecionada = escolha_apresentador()
+    carro = random.randint(1, 3)
+    portas_escolhida = []
+    portas = [1, 2, 3]
 
-trocar_porta = segunda_escolha()
+    escolha = random.randint(1, 3)
 
-escolha_final = decisao_usuario()
+    portas_escolhida, porta_selecionada = escolha_apresentador()
 
-ultima_porta = porta_final()
+    escolha_final = random.choice(["s", "n"])
 
-verificar_vitoria()
+    trocar_porta = segunda_escolha()
+
+    ultima_porta = porta_final()
+
+    verificar_vitoria()
+    
+print("Derrotas: ", contagem_derrota)
+print("Vitorias: ", contagem_vitoria)
+
+
