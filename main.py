@@ -17,25 +17,12 @@ def escolha_usuario():
 
 
 def escolha_apresentador():
-    portas_faltantes = []
-    escolha.append(portas_faltantes), carro.append(portas_faltantes)
+    portas_escolhida = []
     portas = [1, 2, 3]
     for porta in portas:
         if porta != escolha and porta != carro:
-            porta_apresentador = porta
-            return porta_apresentador, portas_faltantes
-
-        
-    
-        
-        
-
-        
-        
-    
-
-
-
+            portas_escolhida.append(porta)
+            return portas_escolhida
 
 
 escolha = escolha_usuario()
